@@ -29,7 +29,7 @@
  {<<"eper">>,{pkg,<<"eper">>,<<"0.94.0">>},0},
  {<<"erldns">>,
   {git,"https://github.com/project-fifo/erl-dns.git",
-       {ref,"b6dbf4be78df37e001cccb2fd6440e36078e3ca1"}},
+       {ref,"7deecde7d9da0565134674ad4a442903c6fecc58"}},
   0},
  {<<"fifo_dt">>,
   {git,"https://github.com/project-fifo/fifo_dt.git",

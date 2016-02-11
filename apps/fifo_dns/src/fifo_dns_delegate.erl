@@ -43,7 +43,7 @@ find_primary([]) ->
     not_found;
 find_primary([N | R]) ->
     case jsxd:get([<<"primary">>], false, N) of
-        true ->
+        <<"true">> ->
             jsxd:get([<<"ip">>], N);
         _ ->
             find_primary(R)
