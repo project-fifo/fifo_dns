@@ -1,0 +1,16 @@
+%% -*- erlang -*-
+
+%% @doc The domain that 'parents' all DNS requests.
+%% from to find a new server. This domain must be
+%% in the zones_file!
+{mapping, "domain", "fifo_dns.domain",
+ [{default, "cloud.fifo"},
+  {datatype, string}]}.
+
+{ translation,
+  "erldns.zone_delegates",
+  fun(Conf) ->
+    Domain = cuttlefish:conf_get("domain", Conf),
+    [{list_to_binary(Domain), fifo_dns_delegate}]
+  end
+}.

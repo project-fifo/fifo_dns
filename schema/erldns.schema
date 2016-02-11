@@ -1,0 +1,135 @@
+%% -*- erlang -*-
+
+
+%% @doc Host/interface and port to listen on for DNS request
+{mapping, "ip", "erldns.ip",
+ [{default, {"{{fifo_dns_ip}}", {{fifo_dns_port}} }},
+  {datatype, ip}]}.
+
+%% @doc Number of processes to run for the DNS connector
+{mapping, "procs", "erldns.inet_procs",
+ [{default, 2},
+  {datatype, integer}]}.
+
+{translation,
+ "erldns.servers",
+ fun(Conf) ->
+         {IP, Port} = cuttlefish:conf_get("ip", Conf),
+         Procs = cuttlefish:conf_get("procs", Conf),
+         [
+          [{name, inet_1},
+           {address, IP},
+           {port, Port},
+           {family, inet},
+           {processes, Procs}]
+         ]
+ end
+}.
+
+%% @doc use root hints
+{mapping, "use_root_hints", "erldns.use_root_hints",
+ [{default, on},
+  {datatype, flag}]}.
+
+%% @doc DNS worker pool size
+{mapping, "pool_size", "erldns.pool_size",
+ [{default, 10},
+  {datatype, integer}]}.
+
+%% @doc DNS worker pool maximum burst size
+{mapping, "pool_max", "erldns.pool_max",
+ [{default, 10},
+  {datatype, integer}]}.
+
+{ translation,
+  "erldns.pools",
+  fun(Conf) ->
+          Size = cuttlefish:conf_get("pool_size", Conf),
+          Max = cuttlefish:conf_get("pool_max", Conf),
+          [
+           {tcp_worker_pool, erldns_worker,
+            [
+             {size, Size},
+             {max_overflow, Max}
+            ]}
+          ]
+  end
+}.
+
+%% @doc Port for the admin interface, set it to 0 to disable
+{mapping, "admin_port", "erldns.admin_port",
+ [{commented, 8083},
+  {default, 0},
+  {datatype, integer}]}.
+
+%% @doc User for the admin interface
+{mapping, "admin_user", "erldns.admin_user",
+ [{default, "user"},
+  {datatype, string}]}.
+
+%% @doc Password for the admin interface
+{mapping, "admin_pass", "erldns.admin_pass",
+ [{default, "pass"},
+  {datatype, string}]}.
+
+%% @doc Port for the metrics interface, set it to 0 to disable
+{mapping, "metrics_port", "erldns.metrics_port",
+ [{commented, 8082},
+  {default, 0},
+  {datatype, integer}]}.
+
+%% @doc Initial zone file.
+{mapping, "zone_file", "erldns.zones",
+ [{default, "etc/fifo.zone.json"},
+
+  {datatype, file}]}.
+
+{mapping, "db_dir", "erldns.storage",
+ [{default, "/var/db/fifo_dns/erldns"},
+  {type, directory}]}.
+
+{ translation,
+  "erldns.storage",
+  fun(Conf) ->
+          Dir = cuttlefish:conf_get("db_dir", Conf),
+          %% erldns_storage_json | erldns_storage_mnesia
+          [{type, erldns_storage_mnesia},
+           {dir, "db"}
+          ]
+  end
+}.
+
+{ translation,
+  "erldns.admin",
+  fun(Conf) ->
+          case cuttlefish:conf_get("admin_port", Conf) of
+              0 ->
+                  [];
+
+              Port ->
+                  User = cuttlefish:conf_get("admin_user", Conf),
+                  Pass = cuttlefish:conf_get("admin_pass", Conf),
+                  [
+                   {port, Port},
+                   {credentials, {User, Pass}}
+                  ];
+              _ ->
+                  []
+          end
+  end
+}.
+
+
+{ translation,
+  "erldns.metrics",
+  fun(Conf) ->
+          case cuttlefish:conf_get("metrics_port", Conf) of
+              0 -> [];
+              Port ->
+                  [
+                   {port, Port}
+                  ]
+          end
+  end
+}.
+

@@ -1,0 +1,98 @@
+[
+    {
+        "name": "cloud.fifo",
+        "records": [
+            {
+                "name": "cloud.fifo",
+                "type": "SOA",
+                "ttl": 3600,
+                "data": {
+                    "mname": "ns1.cloud.fifo",
+                    "rname": "admin.cloud.fifo",
+                    "serial": 2013022001,
+                    "refresh": 86400,
+                    "retry": 7200,
+                    "expire": 604800,
+                    "minimum": 300
+                }
+            },
+            {
+                "name": "cloud.fifo",
+                "type": "A",
+                "ttl": 3600,
+                "data": {
+                    "ip": "1.2.3.4"
+                }
+            },
+            {
+                "name": "cloud.fifo",
+                "type": "AAAA",
+                "ttl": 3600,
+                "data": {
+                    "ip": "2001:6A8:0:1:210:4BFF:FE4B:4C61"
+                }
+            },
+            {
+                "name": "www.cloud.fifo",
+                "type": "CNAME",
+                "ttl": 120,
+                "data": {
+                    "dname": "cloud.fifo"
+                }
+            },
+            {
+                "name": "cloud.fifo",
+                "type": "MX",
+                "ttl": 3600,
+                "data": {
+                    "preference": 10,
+                    "exchange": "mail.cloud.fifo"
+                }
+            },
+            {
+                "name": "cloud.fifo",
+                "type": "NS",
+                "ttl": 3600,
+                "data": {
+                    "dname": "ns1.cloud.fifo"
+                }
+            },
+            {
+                "name": "cloud.fifo",
+                "type": "NS",
+                "ttl": 3600,
+                "data": {
+                    "dname": "ns2.cloud.fifo"
+                }
+            },
+            {
+                "name": "cloud.fifo",
+                "type": "TXT",
+                "ttl": 3600,
+                "data": {
+                    "txt": "\"Hi, this is some text\""
+                }
+            },
+            {
+                "name": "_ldap._tcp.cloud.fifo",
+                "type": "SRV",
+                "ttl": 3600,
+                "data": {
+                    "priority": 0,
+                    "weight": 100,
+                    "port": 389,
+                    "target": "ldap.cloud.fifo"
+                }
+            },
+            {
+                "name": "ldap.cloud.fifo",
+                "type": "A",
+                "ttl": 3600,
+                "data": {
+                    "ip": "50.40.50.40"
+                }
+            }
+
+        ]
+    }
+]

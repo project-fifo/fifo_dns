@@ -1,0 +1,6 @@
+-sname fifo_dns
+
+-setcookie fifo_dns_cookie
+
++K true
++A30

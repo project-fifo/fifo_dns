@@ -1,0 +1,18 @@
+{application, fifo_dns,
+ [{description, "FiFo DNS provider"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { fifo_dns_app, []}},
+  {applications,
+   [kernel,
+    stdlib,
+    erldns,
+    libsniffle
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, []},
+  {links, []}
+ ]}.
