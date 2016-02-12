@@ -1,6 +1,6 @@
 VERSION=0.7.2
-COMPONENT_INTERNAL=kennel
-COMPONENT=fifo-kennel
+COMPONENT_INTERNAL=fifo_dns
+COMPONENT=fifo-dns
 DEPS="erlang>=16.1.2" "coreutils>=8.22nb1" "sudo>=1.7.10p9"
 DEPS="erlang" "coreutils" "sudo" "grep"
 

@@ -101,12 +101,12 @@ run()
 case "$1" in
     connections)
         shift
-        run kennel_console connections $@
+        run fifo_dns_console connections $@
         ;;
     get-net)
         shift
         org="$1"
-        run kennel_console get_nets $org
+        run fifo_dns_console get_nets $org
         ;;
     set-net)
         shift
@@ -115,15 +115,15 @@ case "$1" in
         case "$1" in
             public)
                 shift
-                run kennel_console set_public $org $1
+                run fifo_dns_console set_public $org $1
                 ;;
             private)
                 shift
-                run kennel_console set_private $org $1
+                run fifo_dns_console set_private $org $1
                 ;;
             *)
                 echo "Usage: "
-                echo "kennel set-net <org> public|private <network>"
+                echo "fifo_dns set-net <org> public|private <network>"
                 exit 1
                 ;;
         esac

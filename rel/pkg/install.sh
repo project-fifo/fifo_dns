@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-USER=kennel
+USER=fifo_dns
 GROUP=$USER
 AWK=/usr/bin/awk
 SED=/usr/bin/sed
@@ -11,30 +11,31 @@ case $2 in
         then
             echo "Group already exists, skipping creation."
         else
-            echo Creating kennel group ...
+            echo Creating fifo_dns group ...
             groupadd $GROUP
         fi
         if id $USER > /dev/null 2>&1
         then
             echo "User already exists, skipping creation."
         else
-            echo Creating kennel user ...
-            useradd -g $GROUP -d /var/db/kennel -s /bin/false $USER
+            echo Creating fifo_dns user ...
+            useradd -g $GROUP -d /var/db/fifo_dns -s /bin/false $USER
             echo "Granting permissions to use low port numbers"
             /usr/sbin/usermod -K defaultpriv=basic,net_privaddr $USER
         fi
         echo Creating directories ...
-        mkdir -p /var/db/kennel/ring
-        chown -R kennel:kennel /var/db/kennel
-        mkdir -p /var/log/kennel/sasl
-        chown -R kennel:kennel /var/log/kennel
+        mkdir -p /var/db/fifo_dns/ring
+        chown -R fifo_dns:fifo_dns /var/db/fifo_dns
+        mkdir -p /var/log/fifo_dns/sasl
+        chown -R fifo_dns:fifo_dns /var/log/fifo_dns
 
         ;;
     POST-INSTALL)
-        svccfg import /opt/local/fifo-kennel/share/kennel.xml
+        svccfg import /opt/local/fifo-fifo_dns/share/fifo_dns.xml
         echo Trying to guess configuration ...
         IP=`ifconfig net0 | grep inet | $AWK '{print $2}'`
-        CONFFILE=/opt/local/fifo-kennel/etc/kennel.conf
+        CONFFILE=/opt/local/fifo-fifo_dns/etc/fifo_dns.conf
+        ZONEFILE=/opt/local/fifo-fifo_dns/etc/fifo.zone.json
 
         if [ ! -f "${CONFFILE}" ]
         then
@@ -46,6 +47,14 @@ case $2 in
             #/opt/local/fifo-sniffle/share/update_config.sh ${CONFFILE}.example ${CONFFILE} > ${CONFFILE}.new &&
             #    mv ${CONFFILE} ${CONFFILE}.old &&
             #    mv ${CONFFILE}.new ${CONFFILE}
+        fi
+        if [ ! -f "${ZONEFILE}" ]
+        then
+            echo "Creating new configuration from example file."
+            cp ${ZONEFILE}.example ${ZONEFILE}
+            $SED -i bak -e "s/127.0.0.1/${IP}/g" ${ZONEFILE}
+        else
+            echo "Please make sure you zonefile is up to date!"
         fi
         ;;
 esac
