@@ -18,15 +18,15 @@ get_records_by_name(Qname) ->
 
 do_lookup_vm(Qname, Hostname, Org) ->
     case ls_vm:get_hostname(Hostname, Org) of
-        {ok, Replies} ->
-            build_replies(Qname, Replies);
+        {ok, Replie} ->
+            build_replies(Qname, Replie);
         _ ->
             []
     end.
 
-build_replies(Qname, Replies) ->
+build_replies(Qname, Replie) ->
     [make_record(Qname, ft_iprange:to_bin(IP)) ||
-        {_, IP} <- Replies].
+        {_, IP} <- ft_hostname:a(Replie)].
 
 do_lookup_uuid(Qname, UUID, Org) ->
     case ls_vm:get(UUID) of
