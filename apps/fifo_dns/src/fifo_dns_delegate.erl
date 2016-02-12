@@ -6,13 +6,27 @@
 
 get_records_by_name(Qname) ->
     {ok, Domain} = application:get_env(fifo_dns, domain),
-    Regexp = "^([^.]*)\\.([^.]*)\\.uuid\\." ++ Domain ++ "$",
+    Regexp = "^([^.]*)\\.([^.]*)\\.([^.]*)\\." ++ Domain ++ "$",
     case re:run(Qname, Regexp, [{capture, all_but_first, binary}]) of
-        {match, [UUID, Org]} ->
+        {match, [UUID, Org, <<"vm-uuid">>]} ->
             do_lookup_uuid(Qname, UUID, Org);
+        {match, [Hostname, Org, <<"vm">>]} ->
+            do_lookup_vm(Qname, Hostname, Org);
         _ ->
             []
     end.
+
+do_lookup_vm(Qname, Hostname, Org) ->
+    case ls_vm:get_hostname(Hostname, Org) of
+        {ok, Replies} ->
+            build_replies(Qname, Replies);
+        _ ->
+            []
+    end.
+
+build_replies(Qname, Replies) ->
+    [make_record(Qname, ft_iprange:to_bin(IP)) ||
+        {_, IP} <- Replies].
 
 do_lookup_uuid(Qname, UUID, Org) ->
     case ls_vm:get(UUID) of
