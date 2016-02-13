@@ -47,7 +47,7 @@ Copyright 2012 Project FiFo / Heinz N. Gies
         exec='/opt/local/fifo-dns/bin/fifo_dns %m'
         timeout_seconds='30'>
       <method_context>
-        <method_credential user='fifo_dns' group='fifo_dns' />
+        <method_credential user='fifo_dns' group='fifo_dns' privileges='basic,net_privaddr' />
         <method_environment>
           <envvar name='PATH' value='/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin'/>
           <envvar name='HOME' value='/var/db/fifo_dns'/>
@@ -62,7 +62,7 @@ Copyright 2012 Project FiFo / Heinz N. Gies
         exec='/opt/local/fifo-dns/bin/fifo_dns %m'
         timeout_seconds='60'>
       <method_context>
-        <method_credential user='fifo_dns' group='fifo_dns' />
+        <method_credential user='fifo_dns' group='fifo_dns' privileges='basic,net_privaddr' />
         <method_environment>
           <envvar name='PATH' value='/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin'/>
           <envvar name='HOME' value='/var/db/fifo_dns'/>
@@ -77,7 +77,7 @@ Copyright 2012 Project FiFo / Heinz N. Gies
         exec='/opt/local/fifo-dns/bin/fifo_dns smf-stop'
         timeout_seconds='60'>
       <method_context>
-        <method_credential user='fifo_dns' group='fifo_dns' />
+        <method_credential user='fifo_dns' group='fifo_dns' privileges='basic,net_privaddr' />
         <method_environment>
           <envvar name='PATH' value='/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin'/>
           <envvar name='HOME' value='/var/db/fifo_dns'/>
