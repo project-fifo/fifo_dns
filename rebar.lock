@@ -75,7 +75,7 @@
  {<<"libsnarlmatch">>,{pkg,<<"libsnarlmatch">>,<<"0.1.7">>},1},
  {<<"libsniffle">>,
   {git,"https://github.com/project-fifo/libsniffle.git",
-       {ref,"d2e0b4b6f3b5fa85168642261f391991458d0661"}},
+       {ref,"704fa87a10868d1bc26dd9c9e68bbb51b59526ce"}},
   0},
  {<<"mdns_client">>,{pkg,<<"mdns_client">>,<<"0.1.7">>},2},
  {<<"mdns_client_lib">>,{pkg,<<"mdns_client_lib">>,<<"0.1.33">>},1},

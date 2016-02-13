@@ -69,6 +69,6 @@ make_record(Qname, IP) ->
     #dns_rr {
        name = Qname,
        type = 1,
-       ttl = 3600,
+       ttl = 60,
        data = #dns_rrdata_a{ip = {A, B, C, D}}
       }.
