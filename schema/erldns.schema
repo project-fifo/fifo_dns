@@ -94,7 +94,7 @@
           Dir = cuttlefish:conf_get("db_dir", Conf),
           %% erldns_storage_json | erldns_storage_mnesia
           [{type, erldns_storage_mnesia},
-           {dir, "db"}
+           {dir, Dir}
           ]
   end
 }.
