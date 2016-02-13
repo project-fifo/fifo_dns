@@ -31,11 +31,11 @@ case $2 in
 
         ;;
     POST-INSTALL)
-        svccfg import /opt/local/fifo-fifo_dns/share/fifo_dns.xml
+        svccfg import /opt/local/fifo-dns/share/fifo_dns.xml
         echo Trying to guess configuration ...
         IP=`ifconfig net0 | grep inet | $AWK '{print $2}'`
-        CONFFILE=/opt/local/fifo-fifo_dns/etc/fifo_dns.conf
-        ZONEFILE=/opt/local/fifo-fifo_dns/etc/fifo.zone.json
+        CONFFILE=/opt/local/fifo-dns/etc/fifo_dns.conf
+        ZONEFILE=/opt/local/fifo-dns/etc/fifo.zone.json
 
         if [ ! -f "${CONFFILE}" ]
         then
