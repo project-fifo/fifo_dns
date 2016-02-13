@@ -44,7 +44,7 @@ Copyright 2012 Project FiFo / Heinz N. Gies
     <exec_method
         type='method'
         name='start'
-        exec='/opt/local/fifo-fifo_dns/bin/fifo_dns %m'
+        exec='/opt/local/fifo-dns/bin/fifo_dns %m'
         timeout_seconds='30'>
       <method_context>
         <method_credential user='fifo_dns' group='fifo_dns' />
@@ -59,7 +59,7 @@ Copyright 2012 Project FiFo / Heinz N. Gies
     <exec_method
         name='restart'
         type='method'
-        exec='/opt/local/fifo-fifo_dns/bin/fifo_dns %m'
+        exec='/opt/local/fifo-dns/bin/fifo_dns %m'
         timeout_seconds='60'>
       <method_context>
         <method_credential user='fifo_dns' group='fifo_dns' />
@@ -74,7 +74,7 @@ Copyright 2012 Project FiFo / Heinz N. Gies
     <exec_method
         name='stop'
         type='method'
-        exec='/opt/local/fifo-fifo_dns/bin/fifo_dns smf-stop'
+        exec='/opt/local/fifo-dns/bin/fifo_dns smf-stop'
         timeout_seconds='60'>
       <method_context>
         <method_credential user='fifo_dns' group='fifo_dns' />
