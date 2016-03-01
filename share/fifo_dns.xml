@@ -8,7 +8,7 @@ Copyright 2012 Project FiFo / Heinz N. Gies
   <service
       name='network/fifo_dns'
       type='service'
-      version='0.3.0'>
+      version='0.8.0'>
     <create_default_instance enabled='false' />
     <single_instance />
     <dependency
@@ -50,8 +50,8 @@ Copyright 2012 Project FiFo / Heinz N. Gies
         <method_credential user='fifo_dns' group='fifo_dns' privileges='basic,net_privaddr' />
         <method_environment>
           <envvar name='PATH' value='/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin'/>
-          <envvar name='HOME' value='/var/db/fifo_dns'/>
-          <envvar name='ERL_CRASH_DUMP' value='/var/db/fifo_dns'/>
+          <envvar name='HOME' value='/data/fifo_dns/db'/>
+          <envvar name='ERL_CRASH_DUMP' value='/data/fifo_dns/log'/>
         </method_environment>
       </method_context>
     </exec_method>
@@ -65,8 +65,8 @@ Copyright 2012 Project FiFo / Heinz N. Gies
         <method_credential user='fifo_dns' group='fifo_dns' privileges='basic,net_privaddr' />
         <method_environment>
           <envvar name='PATH' value='/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin'/>
-          <envvar name='HOME' value='/var/db/fifo_dns'/>
-          <envvar name='ERL_CRASH_DUMP' value='/var/db/fifo_dns'/>
+          <envvar name='HOME' value='/data/fifo_dns/db'/>
+          <envvar name='ERL_CRASH_DUMP' value='/data/fifo_dns/log'/>
         </method_environment>
       </method_context>
     </exec_method>
@@ -80,8 +80,8 @@ Copyright 2012 Project FiFo / Heinz N. Gies
         <method_credential user='fifo_dns' group='fifo_dns' privileges='basic,net_privaddr' />
         <method_environment>
           <envvar name='PATH' value='/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin'/>
-          <envvar name='HOME' value='/var/db/fifo_dns'/>
-          <envvar name='ERL_CRASH_DUMP' value='/var/db/fifo_dns'/>
+          <envvar name='HOME' value='/data/fifo_dns/db'/>
+          <envvar name='ERL_CRASH_DUMP' value='/data/fifo_dns/log'/>
         </method_environment>
       </method_context>
     </exec_method>
@@ -89,7 +89,7 @@ Copyright 2012 Project FiFo / Heinz N. Gies
     <template>
       <common_name>
         <loctext xml:lang='C'>
-          Project FiFo's API Server.
+          Project FiFo's DNS server.
         </loctext>
       </common_name>
     </template>

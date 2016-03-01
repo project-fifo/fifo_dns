@@ -19,16 +19,20 @@ case $2 in
             echo "User already exists, skipping creation."
         else
             echo Creating fifo_dns user ...
-            useradd -g $GROUP -d /var/db/fifo_dns -s /bin/false $USER
+            useradd -g $GROUP -d /data/fifo_dns/db -s /bin/false $USER
             echo "Granting permissions to use low port numbers"
             /usr/sbin/usermod -K defaultpriv=basic,net_privaddr $USER
         fi
         echo Creating directories ...
-        mkdir -p /var/db/fifo_dns/ring
-        chown -R fifo_dns:fifo_dns /var/db/fifo_dns
-        mkdir -p /var/log/fifo_dns/sasl
-        chown -R fifo_dns:fifo_dns /var/log/fifo_dns
+        mkdir -p /data/fifo_dns/db/ring
+        mkdir -p /data/fifo_dns/etc
+        mkdir -p /data/fifo_dns/log/sasl
+        chown -R $USER:$GROUP /data/fifo_dns
 
+        if [ -d /tmp/fifo_dns ]
+        then
+            chown -R $USER:$GROUP /tmp/fifo_dns
+        fi
         ;;
     POST-INSTALL)
         svccfg import /opt/local/fifo-dns/share/fifo_dns.xml
@@ -36,6 +40,11 @@ case $2 in
         IP=`ifconfig net0 | grep inet | $AWK '{print $2}'`
         CONFFILE=/opt/local/fifo-dns/etc/fifo_dns.conf
         ZONEFILE=/opt/local/fifo-dns/etc/fifo.zone.json
+
+        CONFFILE=/data/fifo_dns/etc/fifo_dns.conf
+        ZONEFILE=/data/fifo_dns/etc/fifo.zone.json
+        cp /opt/local/fifo-dns/etc/howl.conf.example ${CONFFILE}.example
+        cp /opt/local/fifo-dns/etc/fifo.zone.json.example ${ZONEFILE}.example
 
         if [ ! -f "${CONFFILE}" ]
         then
