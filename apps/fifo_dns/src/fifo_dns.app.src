@@ -1,6 +1,6 @@
 {application, fifo_dns,
  [{description, "FiFo DNS provider"},
-  {vsn, "0.7.3"},
+  {vsn, "0.8.0"},
   {registered, []},
   {mod, { fifo_dns_app, []}},
   {applications,
