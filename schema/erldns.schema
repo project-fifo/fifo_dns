@@ -85,7 +85,7 @@
   {datatype, file}]}.
 
 {mapping, "db_dir", "erldns.storage",
- [{default, "/var/db/fifo_dns/erldns"},
+ [{default, "{{db_path}}"},
   {type, directory}]}.
 
 { translation,
