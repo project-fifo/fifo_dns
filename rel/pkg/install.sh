@@ -41,7 +41,7 @@ case $2 in
         CONFFILE=/data/fifo_dns/etc/fifo_dns.conf
         ZONEFILE=/data/fifo_dns/etc/fifo.zone.json
 
-        cp /opt/local/fifo-dns/etc/howl.conf.example ${CONFFILE}.example
+        cp /opt/local/fifo-dns/etc/fifo_dns.conf.example ${CONFFILE}.example
         cp /opt/local/fifo-dns/etc/fifo.zone.json.example ${ZONEFILE}.example
 
         if [ ! -f "${CONFFILE}" ]
