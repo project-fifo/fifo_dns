@@ -38,11 +38,9 @@ case $2 in
         svccfg import /opt/local/fifo-dns/share/fifo_dns.xml
         echo Trying to guess configuration ...
         IP=`ifconfig net0 | grep inet | $AWK '{print $2}'`
-        CONFFILE=/opt/local/fifo-dns/etc/fifo_dns.conf
-        ZONEFILE=/opt/local/fifo-dns/etc/fifo.zone.json
-
         CONFFILE=/data/fifo_dns/etc/fifo_dns.conf
         ZONEFILE=/data/fifo_dns/etc/fifo.zone.json
+
         cp /opt/local/fifo-dns/etc/howl.conf.example ${CONFFILE}.example
         cp /opt/local/fifo-dns/etc/fifo.zone.json.example ${ZONEFILE}.example
 

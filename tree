@@ -1,9 +1,7 @@
-[0m├─ bugsnag─0.1.1
+[0m├─ bugsnag─0.1.2
 │  ├─ jsx─2.8.0
 │  └─ lager─3.0.1
 │     └─ goldrush─0.1.7
-├─ cuttlefish─2.0.1+build.505.ref2348f6f
-│  └─ getopt─0.8.2
 ├─ eper─0.94.0
 ├─ erldns─1.0.0
 │  ├─ cowboy─1.0.0
@@ -16,19 +14,20 @@
 │  │  └─ meck─0.8.2
 │  ├─ hottub─1.2.0
 │  └─ poolboy─1.5.1
-├─ fifo_dns─0.7.3
-├─ fifo_dt─0.1.65
+├─ fifo_dns─0.8.0
+├─ fifo_dt─0.1.68
 │  ├─ jsxd─0.1.10
 │  ├─ libsnarlmatch─0.1.7
-│  ├─ riak_dt─2.1.1
-│  └─ uuid─0.4.7
+│  └─ riak_dt─2.1.1
 ├─ fifo_lager─0.1.3
 │  ├─ lager_graylog─0.1.0
 │  └─ lager_logstash_backend─0.1.0
 ├─ fifo_utils─0.1.22
-├─ libchunter─0.1.43
-│  └─ fifo_spec─0.1.26
-├─ libsniffle─0.3.36
+│  └─ uuid─1.5.1
+│     └─ quickrand─1.5.1
+├─ libchunter─0.1.45
+│  └─ fifo_spec─0.1.27
+├─ libsniffle─0.3.37
 │  └─ mdns_client_lib─0.1.33
 │     ├─ mdns_client─0.1.7
 │     └─ pooler─1.4.0
