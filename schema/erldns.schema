@@ -80,7 +80,7 @@
 
 %% @doc Initial zone file.
 {mapping, "zone_file", "erldns.zones",
- [{default, "etc/fifo.zone.json"},
+ [{default, "{{platform_etc_dir}}/fifo.zone.json"},
 
   {datatype, file}]}.
 
