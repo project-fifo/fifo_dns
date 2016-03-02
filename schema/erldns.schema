@@ -80,12 +80,12 @@
 
 %% @doc Initial zone file.
 {mapping, "zone_file", "erldns.zones",
- [{default, "etc/fifo.zone.json"},
+ [{default, "{{platform_etc_dir}}/fifo.zone.json"},
 
   {datatype, file}]}.
 
 {mapping, "db_dir", "erldns.storage",
- [{default, "/var/db/fifo_dns/erldns"},
+ [{default, "{{db_path}}"},
   {type, directory}]}.
 
 { translation,
