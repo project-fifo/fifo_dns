@@ -7,7 +7,8 @@
 get_records_by_name(Qname) ->
     {ok, Domain} = application:get_env(fifo_dns, domain),
     Regexp = "^([^.]*)\\.([^.]*)\\.([^.]*)\\." ++ Domain ++ "$",
-    case re:run(Qname, Regexp, [{capture, all_but_first, binary}]) of
+    QnameLC = string:to_lower(binary_to_list(Qname)),
+    case re:run(QnameLC, Regexp, [{capture, all_but_first, binary}]) of
         {match, [UUID, Org, <<"vm-uuid">>]} ->
             do_lookup_uuid(Qname, UUID, Org);
         {match, [Hostname, Org, <<"vm">>]} ->
