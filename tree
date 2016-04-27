@@ -14,7 +14,7 @@
 │  │  └─ meck─0.8.2
 │  ├─ hottub─1.2.0
 │  └─ poolboy─1.5.1
-├─ fifo_dns─0.8.0
+├─ fifo_dns─0.8.1
 ├─ fifo_dt─0.1.68
 │  ├─ jsxd─0.1.10
 │  ├─ libsnarlmatch─0.1.7
