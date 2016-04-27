@@ -25,9 +25,9 @@
 ├─ fifo_utils─0.1.22
 │  └─ uuid─1.5.1
 │     └─ quickrand─1.5.1
-├─ libchunter─0.1.46
+├─ libchunter─0.1.47
 │  └─ fifo_spec─0.1.27
-├─ libsniffle─0.3.46
+├─ libsniffle─0.3.47
 │  └─ mdns_client_lib─0.1.39
 │     ├─ mdns_client─0.1.7
 │     └─ pooler─1.5.0
