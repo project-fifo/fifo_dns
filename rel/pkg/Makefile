@@ -1,4 +1,4 @@
-VERSION=0.8.0p1
+VERSION=0.8.1
 COMPONENT_INTERNAL=fifo_dns
 COMPONENT=fifo-dns
 DEPS="erlang>=16.1.2" "coreutils>=8.22nb1" "sudo>=1.7.10p9"
