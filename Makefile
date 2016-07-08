@@ -1,4 +1,5 @@
 .PHONY: rel package version all tree
+APP=fifo_dns
 
 all: version compile
 
