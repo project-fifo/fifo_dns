@@ -37,7 +37,7 @@
        {ref,"c0e8e1611ee3c57f68a1fb99caa3c64390efcff7"}},
   0},
  {<<"fifo_spec">>,{pkg,<<"fifo_spec">>,<<"0.1.27">>},1},
- {<<"fifo_utils">>,{pkg,<<"fifo_utils">>,<<"0.1.28">>},0},
+ {<<"fifo_utils">>,{pkg,<<"fifo_utils">>,<<"0.1.29">>},0},
  {<<"folsom">>,
   {git,"git://github.com/boundary/folsom.git",
        {ref,"8914823067c623d2839ecd6d17785ba94ad004c8"}},
@@ -90,7 +90,7 @@
 {pkg_hash,[
  {<<"eper">>, <<"F5FB2DAA0DF8878748E1C598428EDA942A173E5121FF35C1D632129B84593A3A">>},
  {<<"fifo_spec">>, <<"4551D919B5289555129D3B5ADDD1C9323781D277B97F1C81EC7341F855D9D420">>},
- {<<"fifo_utils">>, <<"8C4F862FA391EB65A260946B3494D9C4EF460AB20F293CE6187D8A6C2E71545B">>},
+ {<<"fifo_utils">>, <<"9BDFFB8CEA376755FEB91D6A4D7A8DC7CC3C8B180CDD28624F8A6334059D26E3">>},
  {<<"goldrush">>, <<"2024BA375CEEA47E27EA70E14D2C483B2D8610101B4E852EF7F89163CDB6E649">>},
  {<<"jsone">>, <<"5558A02002FC97487A5345265114C3A0A47F0E2CF84183AE6483120C28B5A92D">>},
  {<<"jsxd">>, <<"B2DBBB24A91536C50F75372FB8E28CD16691707AB53BE9449C59A8A611A581A2">>},
