@@ -23,7 +23,7 @@
 ├─ fifo_lager─0.1.4
 │  ├─ lager_graylog─0.1.1
 │  └─ lager_logstash_backend─0.1.1
-├─ fifo_utils─0.1.28
+├─ fifo_utils─0.1.29
 │  └─ uuid─1.5.4
 │     └─ quickrand─1.5.4
 ├─ libchunter─0.1.48
