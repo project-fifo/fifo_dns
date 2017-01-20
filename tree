@@ -1,7 +1,7 @@
-[0m├─ bugsnag─1.1.2
+[0m├─ bugsnag─1.1.3
 │  ├─ jsone─1.3.2
-│  └─ lager─3.2.1
-│     └─ goldrush─0.1.8
+│  └─ lager─3.2.4
+│     └─ goldrush─0.1.9
 ├─ eper─0.94.0
 ├─ erldns─1.0.0
 │  ├─ cowboy─1.0.0
@@ -23,12 +23,12 @@
 ├─ fifo_lager─0.1.4
 │  ├─ lager_graylog─0.1.1
 │  └─ lager_logstash_backend─0.1.1
-├─ fifo_utils─0.1.29
+├─ fifo_utils─0.1.30
 │  └─ uuid─1.5.4
 │     └─ quickrand─1.5.4
 ├─ libchunter─0.1.48
 │  └─ fifo_spec─0.1.27
-├─ libsniffle─0.3.48
+├─ libsniffle─0.3.49
 │  └─ mdns_client_lib─0.1.41
 │     ├─ mdns_client─0.1.8
 │     └─ pooler─1.5.0
