@@ -60,7 +60,7 @@
   1},
  {<<"libchunter">>,
   {git,"https://github.com/project-fifo/libchunter.git",
-       {ref,"4803e8736aace988af0d3fe138d9c70996cbf65f"}},
+       {ref,"26df9fc4cd74a70dbd7193d838dab34a6e1069b9"}},
   0},
  {<<"libsnarlmatch">>,{pkg,<<"libsnarlmatch">>,<<"0.1.8">>},1},
  {<<"libsniffle">>,
