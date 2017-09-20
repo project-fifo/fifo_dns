@@ -9,7 +9,6 @@ all: version_header compile
 include fifo.mk
 
 version_header:
-	@./version_header.sh
 
 clean:
 	$(REBAR) clean
