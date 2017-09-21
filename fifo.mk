@@ -20,7 +20,10 @@ xref: $(REBAR)
 	$(REBAR) xref
 
 test-scripts:
-	for i in rel/files/*; do (head -1 $$i | grep -v sh > /dev/null) || bash -n $$i || exit 1; done;
+	if [ -d rel/files ] ;\
+  then\
+    for i in rel/files/*; do (head -1 $$i | grep -v sh > /dev/null) || bash -n $$i || exit 1; done;\
+  fi
 
 test: $(REBAR)
 	$(REBAR) eunit
@@ -133,6 +136,6 @@ vsn:
 
 test-vsn:
 	@echo "Testing against package version: $(VERSION)"
-	@[ "$(VERSION)" = "$(APP_VSN)" ]  && echo " - App version ok:     $(APP_VSN)"  || (echo "App version out of date" && false)
-	@[ "$(VERSION)" = "$(REBAR_VSN)" ]  && echo " - Rebar version ok: $(REBAR_VSN)"  || (echo "Package version out of date" && false)
-	@[ "$(VERSION)" = "$(VARS_VSN)" ] && echo " - Vars version ok:    $(VARS_VSN)" || (echo "Vars version out of date" && false)
+	@[ "$(VERSION)" = "$(APP_VSN)" ]   && echo " - App version ok:   $(APP_VSN)"   || (echo "App version out of date" && false)
+	@[ "$(VERSION)" = "$(REBAR_VSN)" ] && echo " - Rebar version ok: $(REBAR_VSN)" || (echo "Package version out of date" && false)
+	@[ "$(VERSION)" = "$(VARS_VSN)" ]  && echo " - Vars version ok:  $(VARS_VSN)"  || (echo "Vars version out of date" && false)
