@@ -1,20 +1,16 @@
-VERSION=0.9.2
-COMPONENT_INTERNAL=fifo_dns
-COMPONENT=fifo-dns
-DEPS="erlang>=16.1.2" "coreutils>=8.22nb1" "sudo>=1.7.10p9"
-DEPS="erlang" "coreutils" "sudo" "grep"
+DEPS="erlang" "coreutils" "sudo" "grep" "zlib" "bzip2" "gcc47-libs"
 
-include ../../_build/prod/lib/fifo_utils/priv/pkg.mk
+include ../../config.mk
+include ../../_build/${REBARPROFILE}/lib/fifo_utils/priv/pkg.mk
 
-.PHONY: prepare
+.PHONY: package prepare clean
 
 prepare:
 	-rm -r $(STAGE_DIR)/$(COMPONENT)
-	cp -r ../../_build/prod/rel/$(COMPONENT_INTERNAL) $(STAGE_DIR)/$(COMPONENT)
-
+	cp -r ../../_build/${REBARPROFILE}/rel/$(COMPONENT_INTERNAL) $(STAGE_DIR)/$(COMPONENT)
+	rm -rf $(STAGE_DIR)/$(COMPONENT)/lib/*/c_src
 
 package: prepare $(FILE).tgz
 
 clean: clean-pkg
 	-rm *.tgz
-
