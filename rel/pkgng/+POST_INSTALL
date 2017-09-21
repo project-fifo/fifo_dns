@@ -49,7 +49,7 @@ if [ ! -f "${ZONEFILE}" ]
 then
     echo "Creating new configuration from example file."
     cp ${ZONEFILE}.example ${ZONEFILE}
-    $SED -i bak -e "s/127.0.0.1/${IP}/g" ${ZONEFILE}
+    /usr/bin/sed -i bak -e "s/127.0.0.1/${IP}/g" ${CONFFILE}
 else
     echo "Please make sure you zonefile is up to date!"
 fi
