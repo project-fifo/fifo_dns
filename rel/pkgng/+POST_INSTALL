@@ -22,12 +22,13 @@ echo Trying to guess configuration ...
 IP=$(ifconfig $(netstat -r | grep default | awk '{ print $4 }') | grep 'inet ' | awk -F ' ' '{ print $2 }')
 
 DISTCONFFILE=/usr/local/lib/fifo_dns/etc/fifo_dns.conf.example
+cp ${DISTCONFFILE} ${CONFFILE}.example
+
 CONFFILE=/data/fifo_dns/etc/fifo_dns.conf
 
 if [ ! -f "${CONFFILE}" ]
 then
     echo "Creating new configuration from example file."
-    cp ${DISTCONFFILE} ${CONFFILE}.example
     cp ${CONFFILE}.example ${CONFFILE}
     /usr/bin/sed -i bak -e "s/127.0.0.1/${IP}/g" ${CONFFILE}
 else
@@ -38,4 +39,17 @@ OT=/data/fifo_dns/etc/rules.ot
 if [ ! -f "${OT}" ]
 then
     echo "none() -> drop." > ${OT}
+fi
+
+DISTZONEFILE=/usr/local/lib/fifo_dns/etc/fifo.zone.json.example
+ZONEFILE=/data/fifo_dns/etc/fifo.zone.json
+cp ${DISTZONEFILE} ${ZONEFILE}.example
+
+if [ ! -f "${ZONEFILE}" ]
+then
+    echo "Creating new configuration from example file."
+    cp ${ZONEFILE}.example ${ZONEFILE}
+    $SED -i bak -e "s/127.0.0.1/${IP}/g" ${ZONEFILE}
+else
+    echo "Please make sure you zonefile is up to date!"
 fi
