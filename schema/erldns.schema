@@ -8,7 +8,7 @@
 
 %% @doc Number of processes to run for the DNS connector
 {mapping, "procs", "erldns.inet_procs",
- [{default, 2},
+ [{default, {{udp_procs}} },
   {datatype, integer}]}.
 
 {translation,
