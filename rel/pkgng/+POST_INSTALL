@@ -8,6 +8,21 @@ getent group $GROUP >/dev/null 2>&1 || pw groupadd $GROUP
 echo Creating user ...
 id $USER >/dev/null 2>&1 || pw useradd $USER -g $GROUP -d /data/$USER -s /usr/sbin/nologin
 
+
+ID=`id -u fifo_dns`
+cat <<EOF
+
+==================== POST INSTALL INSTRUCTIONS ====================
+
+  If you intend to run fifo_dns on privileged ports (53),
+  then the following sysctl line is needed:
+
+  security.mac.portacl.enabled: 1
+  security.mac.portacl.rules: uid:${ID}:udp:53
+
+===================================================================
+EOF
+
 echo Creating directories ...
 mkdir -p /data/$USER/db/ring
 mkdir -p /data/$USER/etc
