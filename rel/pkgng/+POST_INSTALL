@@ -9,7 +9,7 @@ echo Creating user ...
 id $USER >/dev/null 2>&1 || pw useradd $USER -g $GROUP -d /data/$USER -s /usr/sbin/nologin
 
 
-ID=`id -u fifo_dns`
+ID=`id -u $USER`
 cat <<EOF
 
 ==================== POST INSTALL INSTRUCTIONS ====================
@@ -21,6 +21,7 @@ cat <<EOF
   security.mac.portacl.rules: uid:${ID}:udp:53
 
 ===================================================================
+
 EOF
 
 echo Creating directories ...
