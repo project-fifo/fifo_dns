@@ -1,8 +1,8 @@
 name: fifo_dns
 version: "__VNS__"
 origin: projectfifo/fifo_dns
-comment: "Project FiFo DNS server."
-desc: |-
+desc: "Project FiFo DNS server."
+comment: |-
   Project FiFo DNS server.
 
   If you intend to run fifo_dns on privileged ports (53),
