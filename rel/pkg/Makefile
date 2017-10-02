@@ -1,4 +1,4 @@
-DEPS="erlang" "coreutils" "sudo" "grep" "zlib" "bzip2" "gcc47-libs"
+DEPS="erlang" "coreutils" "sudo" "grep" "zlib" "bzip2" "gcc49-libs"
 
 include ../../config.mk
 include ../../_build/${REBARPROFILE}/lib/fifo_utils/priv/pkg.mk
