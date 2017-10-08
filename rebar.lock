@@ -13,7 +13,7 @@
   1},
  {<<"eper">>,{pkg,<<"eper">>,<<"0.94.0">>},0},
  {<<"erldns">>,
-  {git,"https://github.com/project-fifo/erl-dns.git",
+  {git,"https://gitlab.com/Project-FiFo/FiFo/erl-dns.git",
        {ref,"af54a4846f22a8b0a53f3cfe393a11018e4b8902"}},
   0},
  {<<"fifo_dt">>,{pkg,<<"fifo_dt">>,<<"0.2.16">>},0},
