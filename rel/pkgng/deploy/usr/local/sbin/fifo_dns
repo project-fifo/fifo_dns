@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+/usr/local/lib/fifo_dns/bin/fifo_dns $@

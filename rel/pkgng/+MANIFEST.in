@@ -1,0 +1,15 @@
+name: fifo_dns
+version: "__VNS__"
+origin: projectfifo/fifo_dns
+comment: "Project FiFo DNS server."
+desc: |-
+  Project FiFo DNS server.
+
+  If you intend to run fifo_dns on privileged ports (53),
+  then the following sysctl line is needed:
+
+  security.mac.portacl.enabled: 1
+  security.mac.portacl.rules: uid:<fifo_dns's uuid>:udp:53
+maintainer: info@project-fifo.net
+www: https://project-fifo.net
+prefix: /

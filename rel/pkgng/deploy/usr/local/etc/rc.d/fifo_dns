@@ -1,0 +1,41 @@
+#!/bin/sh
+#
+# $FreeBSD$
+#
+
+# PROVIDE: fifo_dns
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+
+
+. /etc/rc.subr
+
+name="fifo_dns"
+rcvar=fifo_dns_enable
+
+load_rc_config $name
+: ${fifo_dns="NO"}
+
+
+start_cmd="${name}_start"
+stop_cmd="${name}_stop"
+
+
+
+fifo_dns_start()
+{
+	if checkyesno ${rcvar}; then
+		echo "* starting fifo_dns... "
+		/usr/local/bin/sudo -u fifo_dns /usr/local/lib/fifo_dns/bin/fifo_dns start
+	fi
+}
+
+fifo_dns_stop()
+{
+	if checkyesno ${rcvar}; then
+		echo "* stopping fifo_dns... "
+		/usr/local/bin/sudo -u fifo_dns /usr/local/lib/fifo_dns/bin/fifo_dns stop
+	fi
+}
+
+run_rc_command "$1"

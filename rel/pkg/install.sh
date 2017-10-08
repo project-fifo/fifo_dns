@@ -57,7 +57,7 @@ case $2 in
         fi
         if [ ! -f "${ZONEFILE}" ]
         then
-            echo "Creating new configuration from example file."
+            echo "Creating new zonfile from example: ${ZONEFILE}"
             cp ${ZONEFILE}.example ${ZONEFILE}
             $SED -i bak -e "s/127.0.0.1/${IP}/g" ${ZONEFILE}
         else

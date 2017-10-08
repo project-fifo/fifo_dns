@@ -74,7 +74,7 @@ Copyright 2012 Project FiFo / Heinz N. Gies
     <exec_method
         name='stop'
         type='method'
-        exec='/opt/local/fifo-dns/bin/fifo_dns smf-stop'
+        exec='/opt/local/fifo-dns/bin/fifo_dns stop'
         timeout_seconds='60'>
       <method_context>
         <method_credential user='fifo_dns' group='fifo_dns' privileges='basic,net_privaddr' />

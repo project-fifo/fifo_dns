@@ -1,0 +1,5 @@
++MANIFEST
+deploy/usr/local/lib
+deploy/plist
+deploy/+*
+*.txz
