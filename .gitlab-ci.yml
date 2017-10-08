@@ -45,7 +45,7 @@ smartos:
   <<: *not_triggered
   stage: package
   script:
-    - export SUFFIX=$(/opt/local/bin/erl -noshell -eval '{{Y, MM, D}, {H, M, S}} = calendar:universal_time(), io:format("pre~4.10.0B~2.10.0B~2.10.0B~2.10.0B~2.10.0B~2.10.0B", [Y, MM, D, H, M, S]),init:stop()');
+    - export SUFFIX=$(if [ "$CI_BUILD_REF_NAME" = "master" ]; then echo ""; else /opt/local/bin/erl -noshell -eval '{{Y, MM, D}, {H, M, S}} = calendar:universal_time(), io:format("pre~4.10.0B~2.10.0B~2.10.0B~2.10.0B~2.10.0B~2.10.0B", [Y, MM, D, H, M, S]),init:stop()'; fi);
     - export DS_VER=$(echo $CI_RUNNER_TAGS | sed 's/.*base64-\([0-9.]*\).*/\1/')
     - export BRANCH=$(if [ "$CI_BUILD_REF_NAME" = "master" ]; then echo rel; else echo dev; fi)
     - gmake dist
@@ -83,7 +83,7 @@ bsd:
   <<: *not_triggered
   stage: package
   script:
-    - export SUFFIX=$(/usr/local/bin/erl -noshell -eval '{{Y, MM, D}, {H, M, S}} = calendar:universal_time(), io:format("pre~4.10.0B~2.10.0B~2.10.0B~2.10.0B~2.10.0B~2.10.0B", [Y, MM, D, H, M, S]),init:stop()');
+    - export SUFFIX=$(if [ "$CI_BUILD_REF_NAME" = "master" ]; then echo ""; else /usr/local/bin/erl -noshell -eval '{{Y, MM, D}, {H, M, S}} = calendar:universal_time(), io:format("pre~4.10.0B~2.10.0B~2.10.0B~2.10.0B~2.10.0B~2.10.0B", [Y, MM, D, H, M, S]),init:stop()'; fi);
     - export OS_VER=$(echo $CI_RUNNER_TAGS | sed 's/.*freebsd-\([0-9.]*\).*/\1/')
     - export ARCH=$(uname -m)
     - export BRANCH=$(if [ "$CI_BUILD_REF_NAME" = "master" ]; then echo rel; else echo dev; fi)
